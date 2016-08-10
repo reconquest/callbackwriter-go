@@ -1,4 +1,4 @@
-package main
+package callbackwriter
 
 import (
 	"io"
@@ -15,7 +15,7 @@ func NewWriter(
 	backend io.WriteCloser,
 	write func([]byte),
 	close func(),
-) (*Writer, error) {
+) *Writer {
 	return &Writer{
 		backend: backend,
 		write:   write,
@@ -24,7 +24,7 @@ func NewWriter(
 }
 
 func (writer *Writer) Write(data []byte) (int, error) {
-	if writer.write {
+	if writer.write != nil {
 		writer.write(data)
 	}
 
@@ -32,7 +32,7 @@ func (writer *Writer) Write(data []byte) (int, error) {
 }
 
 func (writer *Writer) Closer() error {
-	if writer.close {
+	if writer.close != nil {
 		writer.close()
 	}
 
