@@ -31,7 +31,7 @@ func (writer *Writer) Write(data []byte) (int, error) {
 	return writer.backend.Write(data)
 }
 
-func (writer *Writer) Closer() error {
+func (writer *Writer) Close() error {
 	if writer.close != nil {
 		writer.close()
 	}
