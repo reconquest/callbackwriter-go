@@ -11,7 +11,7 @@ type Writer struct {
 	close func()
 }
 
-func NewWriter(
+func New(
 	backend io.WriteCloser,
 	write func([]byte),
 	close func(),
