@@ -3,7 +3,7 @@
 Simple writer, which evaluates specified callback on each incoming write. Close
 callback is also available.
 
-Main use case is to use it with [go-lineflushwriter](https://github.com/reconquest/go-lineflushwriter)
+Main use case is to use it with [lineflushwriter-go](https://github.com/reconquest/lineflushwriter-go)
 to pass entire lines into callback:
 
 ```go
